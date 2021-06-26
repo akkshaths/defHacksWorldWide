@@ -6,7 +6,7 @@ from datetime import datetime
 
 class editSchedule:
     def __init__(self):
-        self.data = pd.read_excel('userData.xlsx', nrows = 29, keep_default_na=False)
+        self.data = pd.read_excel('userData.xlsx', nrows = 100, keep_default_na=False)
 
         self.df = pd.DataFrame(self.data, columns= ['Time', 'Class/Club'])
 
