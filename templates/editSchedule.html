@@ -1,0 +1,169 @@
+<html>
+    
+      <head>
+        <style type="text/css">
+
+          .button{height: 50px; width: 100px; background-color:lightpink;}
+
+          h1{text-align:center;}
+          h2{text-align:center;}
+          p{text-align:center;}
+          
+          .center{
+            margin: 0 auto;
+            padding: 0;
+            overflow: auto;
+          }
+          .center{
+            padding: 35% 0;
+            text-align: center;
+          }
+          table, th, td {border: 1px solid black;}
+
+          .addRow{
+            top:20%;
+            left:70%;
+            position: absolute;
+            z-index: 2;
+          }
+
+        </style>
+
+        <SCRIPT language="javascript">
+            function addRow(tableID) {
+
+                var table = document.getElementById(tableID);
+
+                var rowCount = table.rows.length;
+                var row = table.insertRow(rowCount);
+
+                var colCount = table.rows[0].cells.length;
+
+                for(var i=0; i<colCount; i++) {
+
+                    var newcell	= row.insertCell(i);
+
+                    newcell.innerHTML = table.rows[1].cells[i].innerHTML;
+                    //alert(newcell.childNodes);
+                    switch(newcell.childNodes[0].type) {
+                        case "checkbox":
+                                newcell.childNodes[0].checked = false;
+                                break;
+                        case "select-one":
+                                newcell.childNodes[0].selectedIndex = 0;
+                                break;
+                    }
+                }
+            }
+
+            function deleteRow(tableID) {
+                try {
+                var table = document.getElementById(tableID);
+                var rowCount = table.rows.length;
+
+                for(var i=0; i<rowCount; i++) {
+                    var row = table.rows[i];
+                    var chkbox = row.cells[0].childNodes[0];
+                    if(null != chkbox && true == chkbox.checked) {
+                        if(rowCount <= 1) {
+                            alert("Cannot delete all the rows.");
+                            break;
+                        }
+                        table.deleteRow(i);
+                        rowCount--;
+                        i--;
+                    }
+
+
+                }
+                }catch(e) {
+                    alert(e);
+                }
+            }
+
+        </SCRIPT>
+
+      </head>
+    
+      <body style="background-color:#D8F0FA;">
+      
+      <h1>College Pathfinder</h1>
+
+      <div id="headtext">
+        <table align = "center">
+            <tr>
+                <td>
+                    <button class="button" onclick="document.location = 'interests.html'">
+                        Interests
+                    </button>
+                </td>
+                <td>
+                    <button class="button" disabled>
+                        Scheduling
+                    </button>
+                </td>
+                <td>
+                    <button class="button" onclick="document.location = 'maps.html'">
+                        Maps
+                    </button>
+                </td>
+            </tr>
+        </table>
+       </div>
+
+       <h2>Edit Schedule</h2>
+
+        <p>Input Your Classes</p>
+
+        <INPUT type="button" value="Add Row" onclick="addRow('dataTable')" style = "position: absolute; left: 25.25%; top: 29.5%;" />
+
+	    <INPUT type="button" value="Delete Row" onclick="deleteRow('dataTable')" style = "position: absolute; left: 30%; top: 29.5%;" />
+
+        <table id = "dataTable" style="width:50%; margin-top: 2.5%; margin-left: 25%;"; align = "center";>
+            <col style="width:1%">
+            <col style="width:25%">
+	        <col style="width:70%">
+            <thead>
+                <tr>
+                    <th> </th>
+                    <th>Time</th>
+                    <th>Name of Class</th> 
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><INPUT type="checkbox" name="chk"/></td>
+
+                    <td align = "center">
+                        
+                        <select name = "dropdown"; width = 100%>
+                        <option value = "taj" selected> </option>
+                        <option value = "taj">Taj Mahal</option>
+                        <option value = "china">Great Wall of China</option>
+                        <option value = "chirst" >Christ the Redeemer Satue</option>
+                        <option value = "machu" >Machu Picchu</option>
+                        <option value = "chichen">Chichen Itza</option>
+                        <option value = "colossem">The Roman Colosseum</option>
+                        <option value = "petra">Petra</option>
+                        </select>
+                        
+                    </td>
+                    <td align = "center">
+                        
+                        <select name = "dropdown"; style = "width: 100%;">
+                        <option value = "none" selected> </option>
+                        <option value = "taj">BIO 144/Principles of Microbiology</option>
+                        <option value = "china">Great Wall of China</option>
+                        <option value = "chirst" >Christ the Redeemer Satue</option>
+                        <option value = "machu" >Machu Picchu</option>
+                        <option value = "chichen">Chichen Itza</option>
+                        <option value = "colossem">The Roman Colosseum</option>
+                        <option value = "petra">Petra</option>
+                        </select>
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    <body>
+<html>
