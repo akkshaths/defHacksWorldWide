@@ -3,7 +3,7 @@
       <head>
         <style type="text/css">
           
-          .button {height: 50px; width: 100px; background-color:lightpink;}
+          .button {height: 25px; width: 100px; background-color:lightpink;}
 
           h1{text-align:center;}
           
@@ -45,7 +45,20 @@
     </div>
 
     <div class = "center">
-        <p>Here, you can sign up or log in to utilize the website to find new clubs you can pursue, organize a schedule, and aid you in getting your classes. </p>
+        <p>Here, you can sign up to utilize the website to find new clubs you can pursue, organize a schedule, and aid you in getting your classes. 
+          <br>If you already have an account, please log in here. </br>
+        </p>
+
+        <div id="bodytext">
+          <table align = "center">
+          <tr>
+            <td>
+              <button class="button" onclick="document.location = 'login.html'">Go To Login</button></a>
+            </td>
+          </tr>
+          </table>
+        </div>
+
          <div id="bodytext">
           <table align = "center">
             <form action="post.html" method="post">
@@ -53,6 +66,9 @@
             <td>
                 Name:
             </td>
+            <td>
+              <input type="text" name="name"></input>
+           </td>
          </tr> 
          <tr>
             <td>
@@ -88,8 +104,16 @@
           </tr>
           <tr>
             <td>
-                <button class="button" onclick="document.location = 'homepage2.html'">Create Account</button>
-                <input type="submit" value="Create Account">
+              Retype Password: 
+            </td>
+            <td>
+              <input type="text" name="name"></input>
+            </td>
+          </tr>
+          <table align = "center"></table>
+          <tr>
+            <td>
+                <input type="submit" value="Create Account!">
             </td>
           </tr>
           </table>
