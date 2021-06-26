@@ -20,13 +20,6 @@
           }
           table, th, td {border: 1px solid black;}
 
-          .addRow{
-            top:20%;
-            left:70%;
-            position: absolute;
-            z-index: 2;
-          }
-
         </style>
 
         <SCRIPT language="javascript">
@@ -83,6 +76,60 @@
 
         </SCRIPT>
 
+        <SCRIPT language="javascript">
+            function addRow(tableID) {
+
+                var table = document.getElementById(tableID);
+
+                var rowCount = table.rows.length;
+                var row = table.insertRow(rowCount);
+
+                var colCount = table.rows[0].cells.length;
+
+                for(var i=0; i<colCount; i++) {
+
+                    var newcell	= row.insertCell(i);
+
+                    newcell.innerHTML = table.rows[1].cells[i].innerHTML;
+                    //alert(newcell.childNodes);
+                    switch(newcell.childNodes[0].type) {
+                        case "checkbox":
+                                newcell.childNodes[0].checked = false;
+                                break;
+                        case "select-one":
+                                newcell.childNodes[0].selectedIndex = 0;
+                                break;
+                    }
+                }
+            }
+
+                function deleteRow(tableID) {
+                    try {
+                    var table = document.getElementById(tableID);
+                    var rowCount = table.rows.length;
+
+                    for(var i=0; i<rowCount; i++) {
+                        var row = table.rows[i];
+                        var chkbox = row.cells[0].childNodes[0];
+                        if(null != chkbox && true == chkbox.checked) {
+                            if(rowCount <= 1) {
+                                alert("Cannot delete all the rows.");
+                                break;
+                            }
+                            table.deleteRow(i);
+                            rowCount--;
+                            i--;
+                        }
+
+
+                    }
+                    }catch(e) {
+                        alert(e);
+                    }
+                }
+
+            </SCRIPT>
+
       </head>
     
       <body style="background-color:#D8F0FA;">
@@ -115,13 +162,13 @@
 
         <p>Input Your Classes</p>
 
-        <INPUT type="button" value="Add Row" onclick="addRow('dataTable')" style = "position: absolute; left: 25.25%; top: 29.5%;" />
+        <INPUT type="button" value="Add Row" onclick="addRow('dataTable1')" style = "position: absolute; left: 25.25%; top: 29.5%;" />
 
-	    <INPUT type="button" value="Delete Row" onclick="deleteRow('dataTable')" style = "position: absolute; left: 30%; top: 29.5%;" />
+	    <INPUT type="button" value="Delete Row" onclick="deleteRow('dataTable1')" style = "position: absolute; left: 30%; top: 29.5%;" />
 
-        <table id = "dataTable" style="width:50%; margin-top: 2.5%; margin-left: 25%;"; align = "center";>
+        <table id = "dataTable1" style="width:50%; margin-top: 2.5%; margin-left: 25%;"; align = "center";>
             <col style="width:1%">
-            <col style="width:25%">
+            <col style="width:1.5%">
 	        <col style="width:70%">
             <thead>
                 <tr>
@@ -137,28 +184,139 @@
                     <td align = "center">
                         
                         <select name = "dropdown"; width = 100%>
-                        <option value = "taj" selected> </option>
-                        <option value = "taj">Taj Mahal</option>
-                        <option value = "china">Great Wall of China</option>
-                        <option value = "chirst" >Christ the Redeemer Satue</option>
-                        <option value = "machu" >Machu Picchu</option>
-                        <option value = "chichen">Chichen Itza</option>
-                        <option value = "colossem">The Roman Colosseum</option>
-                        <option value = "petra">Petra</option>
+                        <option value = "time" selected> </option>
+                        <option value = "time1">1:00</option>
+                        <option value = "time2">2:00</option>
+                        <option value = "time3">3:00</option>
+                        <option value = "time4">4:00</option>
+                        <option value = "time5">5:00</option>
+                        <option value = "time6">6:00</option>
+                        <option value = "time7">7:00</option>
+                        <option value = "time8">8:00</option>
+                        <option value = "time9">9:00</option>
+                        <option value = "time10">10:00</option>
+                        <option value = "time11">11:00</option>
+                        <option value = "time12">12:00</option>
+                        <option value = "time13">13:00</option>
+                        <option value = "time14">14:00</option>
+                        <option value = "time15">15:00</option>
+                        <option value = "time16">16:00</option>
+                        <option value = "time17">17:00</option>
+                        <option value = "time18">18:00</option>
+                        <option value = "time19">19:00</option>
+                        <option value = "time20">20:00</option>
+                        <option value = "time21">21:00</option>
+                        <option value = "time22">22:00</option>
+                        <option value = "time23">23:00</option>
+                        <option value = "time24">24:00</option>
                         </select>
                         
                     </td>
                     <td align = "center">
                         
                         <select name = "dropdown"; style = "width: 100%;">
-                        <option value = "none" selected> </option>
-                        <option value = "taj">BIO 144/Principles of Microbiology</option>
-                        <option value = "china">Great Wall of China</option>
-                        <option value = "chirst" >Christ the Redeemer Satue</option>
-                        <option value = "machu" >Machu Picchu</option>
-                        <option value = "chichen">Chichen Itza</option>
-                        <option value = "colossem">The Roman Colosseum</option>
-                        <option value = "petra">Petra</option>
+                        <option value = "nameOfClass" selected> </option>
+                        <option value = "bio1">BIO 144/Principles of Microbiology</option>
+                        <option value = "acc1">ACC 201/Financial Accounting and Reporting</option>
+                        <option value = "acc2">ACC 202/Managerial Accounting</option>
+                        <option value = "nur1">NUR 202/Nutrition Across the Life Span</option>
+                        <option value = "nur2">NUR 210/Professional Role Development I: Caring Within the Learner Role</option>
+                        <option value = "nur3">NUR 220/Wellness Promotion Across the Life Span</option>
+                        <option value = "lit1">LIT 200/Introduction to Poetry</option>
+                        <option value = "lit2">LIT 201/Approaches to Literature</option>
+                        <option value = "lit3">LIT 202/Cultures and Canons</option>
+                        <option value = "eng1">ENG 091, 092/Engineering Seminar I, II</option>
+                        <option value = "eng2">ENG 093, 094/Engineering Seminar III, IV</option>
+                        <option value = "eng3">ENG 095/Introduction to Engineering</option>
+                        <option value = "eng4">ENG 098/Fundamentals of Engineering Review</option>
+                        <option value = "eng5">ENG 099/Senior Professional Seminar</option>
+                        </select>
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Input Your Clubs</p>
+
+        <INPUT type="button" value="Add Row" onclick="addRow('dataTable2')" style = "position: relative; left: 25%; top: -0.75%;" />
+
+	    <INPUT type="button" value="Delete Row" onclick="deleteRow('dataTable2')" style = "position: relative; left: 25%; top: -0.75%;" />
+
+        <table id = "dataTable2" style="width:50%; margin-top: 0%; margin-left: 25%;"; align = "center";>
+            <col style="width:1%">
+            <col style="width:1.5%">
+	        <col style="width:70%">
+            <thead>
+                <tr>
+                    <th> </th>
+                    <th>Time</th>
+                    <th>Name of Club</th> 
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><INPUT type="checkbox" name="chk"/></td>
+
+                    <td align = "center">
+                        
+                        <select name = "dropdown"; width = 100%>
+                        <option value = "time" selected> </option>
+                        <option value = "time1">1:00</option>
+                        <option value = "time2">2:00</option>
+                        <option value = "time3">3:00</option>
+                        <option value = "time4">4:00</option>
+                        <option value = "time5">5:00</option>
+                        <option value = "time6">6:00</option>
+                        <option value = "time7">7:00</option>
+                        <option value = "time8">8:00</option>
+                        <option value = "time9">9:00</option>
+                        <option value = "time10">10:00</option>
+                        <option value = "time11">11:00</option>
+                        <option value = "time12">12:00</option>
+                        <option value = "time13">13:00</option>
+                        <option value = "time14">14:00</option>
+                        <option value = "time15">15:00</option>
+                        <option value = "time16">16:00</option>
+                        <option value = "time17">17:00</option>
+                        <option value = "time18">18:00</option>
+                        <option value = "time19">19:00</option>
+                        <option value = "time20">20:00</option>
+                        <option value = "time21">21:00</option>
+                        <option value = "time22">22:00</option>
+                        <option value = "time23">23:00</option>
+                        <option value = "time24">24:00</option>
+                        </select>
+                        
+                    </td>
+                    <td align = "center">
+                        
+                        <select name = "dropdown"; style = "width: 100%;">
+                        <option value = "nameOfClass" selected> </option>
+                        <option value = "as">Anthropology Society</option>
+                        <option value = "ampd">Association for Music Production and Discussion</option>
+                        <option value = "bme">Biomedical Engineering Society</option>
+                        <option value = "econClub">Economics Club</option>
+                        <option value = "entClub">Entrepreneurship Club</option>
+                        <option value = "fma">Financial Management Association</option>
+                        <option value = "humanEng">Humanitarian Engineering</option>
+                        <option value = "ieee">Institute of Electrical and Electronics Engineers</option>
+                        <option value = "imasc">Institute of Management Accountants Student Chapter</option>
+                        <option value = "msc">Mathematics & Statistics Club</option>
+                        <option value = "msa">Music Students Association </option>
+                        <option value = "name">National Association for Music Educators</option>
+                        <option value = "naba">National Association of Black Accountants</option>
+                        <option value = "nsbe">National Society of Black Engineers</option>
+                        <option value = "nspe">National Society of Professional Engineers </option>
+                        <option value = "neuroClub">Neuroscience Club</option>
+                        <option value = "physicsClub">Physics Club</option>
+                        <option value = "predSociety">Pre-Dental Society</option>
+                        <option value = "preLawSociety">Pre-Law Society </option>
+                        <option value = "psychClub">Psychology Club</option>
+                        <option value = "stemes">STEM Educators Society </option>
+                        <option value = "sca">Student Chemists Association</option>
+                        <option value = "snjea">Student New Jersey Education Association</option>
+                        <option value = "sna">Student Nurses Association</option>
                         </select>
                         
                     </td>
