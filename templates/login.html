@@ -31,17 +31,50 @@
                     </button>
                 </td>
                 <td>
-                    <button class="button" onclick="document.location = 'scheduling.html'">
+                    <button class="button" disabled>
                         Scheduling
                     </button>
                 </td>
                 <td>
-                    <button class="button" onclick="document.location = 'maps.html'">
+                    <button class="button" disabled`>
                         Maps
                     </button>
                 </td>
             </tr>
         </table>
     </div>
+
+    <div class = "center">
+        <p>Sign in to utilize the website to find new clubs you can pursue, organize a schedule, and aid you in getting your classes. </p>
+
+         <div id="bodytext">
+          <table align = "center">
+            <form action="post.html" method="post">
+         <tr>
+            <td>
+                Username:
+            </td>
+            <td>
+                <input type="text" name="name"></input>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Password: 
+            </td>
+            <td>
+              <input type="text" name="name"></input>
+            </td>
+          </tr>
+          <table align = "center"></table>
+          <tr>
+            <td>
+                <input type="submit" value="Login" onclick="document.location = 'homepage2.html'">
+            </td>
+          </tr>
+          </table>
+         </div>
+     </div>
+
     </body> 
  </html>
