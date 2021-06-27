@@ -1,3 +1,4 @@
+from html.entities import html5
 import pandas as pd
 import openpyxl
 
@@ -33,7 +34,7 @@ class Filter:
                 dict1['Social Media'].append(self.social[x])
 
         dataFrame = pd.DataFrame.from_dict(dict1)
-        return dataFrame.to_html(index=False)
+        return html5(dataFrame.to_html(index=False))
 
     def searchFor(self, query):
         dict2 = {
@@ -60,7 +61,7 @@ class Filter:
         }
         dataFrame = pd.DataFrame.from_dict(dict1)
         tabHTML = dataFrame.to_html(index=False)
-        return tabHTML
+        return html5(tabHTML)
 
 
 
