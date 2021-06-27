@@ -158,8 +158,10 @@
               </tr>
           </tbody>
       </table>
-
-      {{tableFromTags}}
+      <table>
+        {{tableFromTags | safe}}
+      </table>
+      
     </div>
     </body> 
  </html>
