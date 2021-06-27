@@ -58,6 +58,10 @@ def tagCalc():
 def scheduler():
     return render_template('scheduling.html')
 
+@app.route('/map')
+def map():
+    return render_template('maps.html')
+
 
 
 if __name__ == '__main__':
