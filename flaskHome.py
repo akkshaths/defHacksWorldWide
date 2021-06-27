@@ -5,6 +5,8 @@ import datetime
 from urllib.request import urlopen as urlopen
 import os, sys, json
 from clubInterest import Filter
+from IPython.display import display
+
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -51,6 +53,10 @@ def tagCalc():
     list1 = request.form.getlist()
     y = x.returnClubNames(list1)
     return render_template('interests.html', tableFromTags=y)
+
+@app.route('/scheduler')
+def scheduler():
+    return render_template('scheduling.html')
 
 
 

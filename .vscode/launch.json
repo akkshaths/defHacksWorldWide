@@ -5,10 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "pwa-chrome",
-            "request": "launch",
-            "name": "Open editSchedule.html",
-            "file": "c:\\Users\\risha\\Documents\\GitHub\\defHacksWorldWide\\templates\\editSchedule.html"
+            
         }
     ]
 }
