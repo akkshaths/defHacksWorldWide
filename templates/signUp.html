@@ -53,15 +53,16 @@
           <table align = "center">
           <tr>
             <td>
-              <button class="button" onclick="document.location = 'login.html'">Go To Login</button></a>
+              <button class="button" onclick="document.location = '/login'">Go To Login</button></a>
             </td>
           </tr>
           </table>
         </div>
 
+        <form action="post.html" method="post">
          <div id="bodytext">
           <table align = "center">
-            <form action="post.html" method="post">
+            
          <tr>
             <td>
                 Name:
@@ -75,7 +76,7 @@
                 Age:
             </td>
             <td>
-                <input type="text" name="name"></input>
+                <input type="text" name="age"></input>
             </td>
          </tr>
          <tr>
@@ -83,7 +84,7 @@
                 Email:
             </td>
             <td>
-                <input type="text" name="name"></input>
+                <input type="text" name="email"></input>
             </td>
          </tr>
          <tr>
@@ -91,7 +92,7 @@
                 Username:
             </td>
             <td>
-                <input type="text" name="name"></input>
+                <input type="text" name="username"></input>
             </td>
           </tr>
           <tr>
@@ -99,7 +100,7 @@
               Password: 
             </td>
             <td>
-              <input type="text" name="name"></input>
+              <input type="text" name="pwd"></input>
             </td>
           </tr>
           <tr>
@@ -107,20 +108,19 @@
               Retype Password: 
             </td>
             <td>
-              <input type="text" name="name"></input>
+              <input type="text" name="pwd2"></input>
             </td>
           </tr>
                     
           <table align = "center">
           <tr>
             <td>
-              <button class="button" onclick="document.location = 'interests.html'">
-                Submit
-            </button>
+              <input type="submit" value="Submit" ></input>
             </td>
           </tr>
           </table>
          </div>
+        </form>
      </div>
 
     </body> 
