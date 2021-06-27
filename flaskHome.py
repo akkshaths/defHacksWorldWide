@@ -4,6 +4,7 @@ from flask import Flask, request, session, g, redirect, \
 import datetime
 from urllib.request import urlopen as urlopen
 import os, sys, json
+from clubInterest import Filter
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -26,6 +27,32 @@ def login():
 @app.route('/signup')
 def signup():
     return render_template('signup.html')
+
+@app.route('/afterSignup', methods = ["POST"])
+def temp():
+    username = request.form.get('email')
+    password = request.form.get('pwd')
+    age = request.form.get('age')
+    name = request.form.get('name')
+    email = request.form.get('email')
+
+    #still need to compare with current tings and add to excel file
+
+    return render_template('/interest')
+
+@app.route('/interest')
+def interest():
+    x = Filter()
+    return render_template('interests.html', tableFromTags=x.printting())
+
+@app.route('/inTag', methods = ['POST'])
+def tagCalc():
+    x = Filter()
+    list1 = request.form.getlist()
+    y = x.returnClubNames(list1)
+    return render_template('interests.html', tableFromTags=y)
+
+
 
 if __name__ == '__main__':
     app.run()
