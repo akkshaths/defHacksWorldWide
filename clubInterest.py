@@ -1,3 +1,4 @@
+from html.entities import html5
 import pandas as pd
 import openpyxl
 
@@ -33,7 +34,7 @@ class Filter:
                 dict1['Social Media'].append(self.social[x])
 
         dataFrame = pd.DataFrame.from_dict(dict1)
-        return dataFrame.to_string(index=False)
+        return html5(dataFrame.to_html(index=False))
 
     def searchFor(self, query):
         dict2 = {
@@ -50,10 +51,18 @@ class Filter:
             dict2['Social Media'].append(self.social[x])
         dataFrame = pd.DataFrame.from_dict(dict2)
         return dataFrame.to_string(index=False)
-        return dataFrame
 
     def printting(self):
-        return(self.club)
+        dict1 = {
+            'Club Name': self.club,
+            'Address': self.address,
+            'Social Media': self.social,
+            'Link': self.link
+        }
+        dataFrame = pd.DataFrame.from_dict(dict1)
+        tabHTML = dataFrame.to_html(index=False)
+        return html5(tabHTML)
+
 
 
 
