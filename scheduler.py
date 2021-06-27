@@ -45,6 +45,7 @@ class editSchedule:
 
 
 
+
 y = editSchedule()
 y.addActivity(['Soccer','Economics','Finance'], ['10:30', '8:45', '6:30'])
 
