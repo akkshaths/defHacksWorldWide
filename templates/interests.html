@@ -2,9 +2,9 @@
     <body style="background-color:#D8F0FA;">
       <head>
 
-        <script language="src"
-          "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-          </script>
+        <script src=
+        "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+        </script>
 
         <style type="text/css">
           
@@ -53,7 +53,7 @@
         <h2>Interest Categories</h2>
         <p>As you type any areas of interest in the search bar from the "Categories" bank from the above, suggested clubs and classes for you will appear below.</p>
 
-        <table id = "dataTable3" style="width:20%;"; align = "center";>
+        <table id = "dataTable4" style="width:20%;"; align = "center";>
           <thead>
               <tr>
                   <th colspan="2">Categories</th>
@@ -94,7 +94,7 @@
               </tr>
               <tr height="21px">
                   <td align = "left">
-                    <p>Electricity</p>
+                    <p>Electrical Engineering</p>
                   </td>
                   <td align = "left">
                     <p>Engineering</p>
@@ -166,24 +166,13 @@
       
       <center>
           </h3>
-          <b>Search the table for Course, Fees or Type: 
-            <input id="gfg" type="text" 
+          <b>Search the table for the categories from above to see the appropriate classes and clubs:
+            <input id="categories" type="text" 
                   placeholder="Search here">
           </b>
           <br>
           <br>
-          <script>
-            $(document).ready(function() {
-                $("#gfg").on("keyup", function() {
-                    var value = $(this).val().toLowerCase();
-                    $("#geeks tr").filter(function() {
-                        $(this).toggle($(this).text()
-                        .toLowerCase().indexOf(value) > -1)
-                    });
-                });
-            });
-          </script>
-        </center>
+          
 
   <table border="1" class="dataframe"; style="width:90%;"; align = "center";>
     <thead>
@@ -191,10 +180,10 @@
         <th>Club Name</th>
         <th>Address</th>
         <th>Link</th>
-        <th colspan="3">Tags</th>
+        <th colspan="3">Categories</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id = "dataTable3">
       <tr>
         <td>Anthropology Society</td>
         <td>Biology Building, Park Drive, Ewing Township, NJ 08638</td>
@@ -257,7 +246,7 @@
         <td>Institute of Electrical and Electronics Engineers</td>
         <td>Bliss Hall, Metzger Dr, Ewing Township, NJ 08638</td>
         <td>https://electrical-computerengineering.tcnj.edu/</td>
-        <td>Electricity</td>
+        <td>Electrical Engineering</td>
         <td>Engineering</td>
         <td> </td>
       </tr>
@@ -303,7 +292,21 @@
         <td> </td>
       </tr>
     </tbody>
-  </table>  
+  </table>
+  
+        <script>
+          $(document).ready(function() {
+              $("#categories").on("keyup", function() {
+                  var value = $(this).val().toLowerCase();
+                  $("#dataTable3 tr").filter(function() {
+                      $(this).toggle($(this).text()
+                      .toLowerCase().indexOf(value) > -1)
+                  });
+              });
+          });
+        </script>
+      </center>
+
     </div>
   </body> 
  </html>
